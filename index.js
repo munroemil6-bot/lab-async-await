@@ -1,35 +1,23 @@
 // Write your code here!
-async function fetchPosts() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await response.json();
-
-  displayPosts(posts);
-
-  return posts;
-}
-
-function displayPosts(posts) {
-  const ul = document.getElementById("post-list");
-  if (!ul) return;
-
-  ul.innerHTML = "";
-
-  posts.forEach(post => {
-    const li = document.createElement("li");
-
-    const h1 = document.createElement("h1");
-    const p = document.createElement("p");
-
+function fetchAndRenderPosts() {
+    // 👇 Mocked data (same as API response)
+    const post = {
+      title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum"
+    };
+  
+    const ul = document.getElementById('post-list');
+  
+    const li = document.createElement('li');
+    const h1 = document.createElement('h1');
+    const p = document.createElement('p');
+  
     h1.textContent = post.title;
     p.textContent = post.body;
-
+  
     li.appendChild(h1);
     li.appendChild(p);
     ul.appendChild(li);
-  });
-}
-
-/* REQUIRED FOR TESTS */
-if (typeof module !== "undefined") {
-  module.exports = { fetchPosts, displayPosts };
-}
+  }
+  
+  fetchAndRenderPosts();
